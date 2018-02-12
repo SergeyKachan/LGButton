@@ -615,6 +615,7 @@ public class LGButton: UIControl {
     }
 
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        sendActions(for: .touchDown)
         pressed = true
     }
     
@@ -623,6 +624,8 @@ public class LGButton: UIControl {
         pressed = false
         if shouldSendActions{
             sendActions(for: .touchUpInside)
+        } else {
+            sendActions(for: .touchUpOutside)
         }
     }
     
